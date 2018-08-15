@@ -16,6 +16,26 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "button": [
+        "dist/button"
+      ],
+      "button/*": [
+        "dist/button/*"
+      ],
+      "@prudencss/ng-button": [
+        "dist/prudencss/ng-button"
+      ],
+      "@prudencss/ng-button/*": [
+        "dist/prudencss/ng-button/*"
+      ],
+      "@prudencss-ng/prudencss-button": [
+        "dist/prudencss-ng/prudencss-button"
+      ],
+      "@prudencss-ng/prudencss-button/*": [
+        "dist/prudencss-ng/prudencss-button/*"
+      ]
+    }
   }
 }
