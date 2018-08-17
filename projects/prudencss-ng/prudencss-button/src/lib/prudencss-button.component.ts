@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 @Component({
   selector: "lib-prudencss-button",
   template: `
-    <button class="c-btn c-btn-state--info c-btn--no-border c-btn--fab c-btn--huge">
+    <button class="c-btn c-btn--large a-ripple c-btn--info">
       prudencss-button
     </button>
   `,

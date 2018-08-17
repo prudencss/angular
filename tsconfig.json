@@ -35,6 +35,12 @@
       ],
       "@prudencss-ng/prudencss-button/*": [
         "dist/prudencss-ng/prudencss-button/*"
+      ],
+      "@prudencss-ng/core": [
+        "dist/prudencss-ng/core"
+      ],
+      "@prudencss-ng/core/*": [
+        "dist/prudencss-ng/core/*"
       ]
     }
   }

@@ -245,6 +245,46 @@
           }
         }
       }
+    },
+    "@prudencss-ng/core": {
+      "root": "projects/prudencss-ng/core",
+      "sourceRoot": "projects/prudencss-ng/core/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/prudencss-ng/core/tsconfig.lib.json",
+            "project": "projects/prudencss-ng/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/prudencss-ng/core/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/prudencss-ng/core/src/test.ts",
+            "tsConfig": "projects/prudencss-ng/core/tsconfig.spec.json",
+            "karmaConfig": "projects/prudencss-ng/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/prudencss-ng/core/tsconfig.lib.json",
+              "projects/prudencss-ng/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular"
