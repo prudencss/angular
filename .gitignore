@@ -7,6 +7,8 @@
 
 # dependencies
 /node_modules
+/projects/prudencss-ng/core/node_modules
+/projects/prudencss-ng/button/node_modules
 
 # IDEs and editors
 /.idea
