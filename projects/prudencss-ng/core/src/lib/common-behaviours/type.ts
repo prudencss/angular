@@ -34,8 +34,6 @@ export function mixinType<T extends Constructor<HasElementRef>>(
   return class extends base {
     private _type: TypePalette;
 
-    protected _componentInfix: string;
-
     get type(): TypePalette {
       return this._type;
     }

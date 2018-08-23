@@ -40,8 +40,6 @@ export function mixinColor<T extends Constructor<HasElementRef>>(
   return class extends base {
     private _color: ThemePalette;
 
-    protected _componentInfix: string;
-
     get color(): ThemePalette {
       return this._color;
     }
