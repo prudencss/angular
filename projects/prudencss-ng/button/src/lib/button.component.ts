@@ -18,7 +18,8 @@ import {
   Input,
   ElementRef,
   HostListener,
-  HostBinding
+  HostBinding,
+  OnInit
 } from "@angular/core";
 import {
   ComponentBase,
