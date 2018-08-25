@@ -1,19 +1,45 @@
 import { ElementRef } from "@angular/core";
 
-export abstract class ComponentBase {
-  protected readonly _componentInfix: string;
+export abstract class ComponentBaseProps {
+  protected _componentInfix: string;
+  protected _classList: DOMTokenList;
+  protected _elementRef: ElementRef;
+}
 
-  constructor(public _elementRef: ElementRef) {
-    this._getHostElement().classList.add(`c-${this._componentInfix}`);
+abstract class M<T> {}
+
+export abstract class ComponentBase extends ComponentBaseProps {
+  constructor(protected _elementRef: ElementRef): string {
+    super();
+    this._classList = this._elementRef.nativeElement.classList;
+    this.getHostElement().classList.add(`c-${this._componentInfix}`);
   }
 
-  protected _getHostElement(): HTMLElement {
-    return this._elementRef.nativeElement;
+  static mixin<T extends ComponentBaseProps>(
+    ...args: any[]
+  ): T & typeof ComponentBase {
+    class Augmented extends ComponentBase {}
+    args.forEach(mixin => {
+      for (const method of Object.keys(mixin.prototype)) {
+        const descriptor = Object.getOwnPropertyDescriptor(
+          mixin.prototype,
+          method
+        );
+        Object.defineProperty(Augmented.prototype, method, descriptor);
+      }
+    });
+    return Augmented as T & typeof ComponentBase;
   }
+
+  static equip<T>
 
   protected _hasHostAttributes(...attributes: string[]): boolean {
     return attributes.some(attribute =>
-      this._getHostElement().hasAttribute(attribute)
+      this.getHostElement().hasAttribute(attribute)
     );
+  }
+
+  public getHostElement(): HTMLElement {
+    return this._elementRef.nativeElement;
   }
 }
