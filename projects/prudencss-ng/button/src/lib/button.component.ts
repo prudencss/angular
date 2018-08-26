@@ -29,12 +29,12 @@ import {
   CanDisable,
   CanSize,
   CanButtonType,
-  mixinAnimation,
-  mixinColor,
-  mixinDecoration,
-  mixinDisabled,
-  mixinSize,
-  mixinType
+  Animation,
+  Color,
+  Decoration,
+  Disabled,
+  Size,
+  Type
 } from "@prudencss-ng/core";
 
 /**
@@ -52,9 +52,7 @@ const BUTTON_HOST_ATTRIBUTES = [
   "icon"
 ];
 
-/**
- * Material design button.
- */
+export interface PrueButtonComponent extends ComponentBase {}
 @Component({
   moduleId: module.id,
   selector: `button[prue-button]`,
@@ -65,10 +63,13 @@ const BUTTON_HOST_ATTRIBUTES = [
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PrueButtonComponent
-  extends mixinAnimation(
-    mixinColor(
-      mixinDecoration(mixinDisabled(mixinSize(mixinType(ComponentBase))))
-    )
+  extends ComponentBase.mixin(
+    Animation,
+    Color,
+    Decoration,
+    Disabled,
+    Size,
+    Type
   )
   implements
     OnDestroy,
@@ -79,7 +80,7 @@ export class PrueButtonComponent
     CanDisable,
     CanSize,
     CanButtonType {
-  @ViewChild(Spinner) spinner: Spinner;
+  // @ViewChild(Spinner) spinner: Spinner;
 
   @Input() protected animation?: CanAnimation.animation;
   @Input() protected color?: CanColor.color;
