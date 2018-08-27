@@ -7,6 +7,7 @@
     "@angular/cdk": "^6.4.5"
   },
   "devDependencies": {
-    "@angular/cdk": "^6.4.5"
+    "@angular/cdk": "^6.4.5",
+    "@prudencss-ng/core": "file:../core"
   }
 }
