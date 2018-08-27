@@ -2,7 +2,6 @@
  * Public API Surface of core
  */
 
-export * from "./lib/common-abstractions/constructor";
 export * from "./lib/common-abstractions/component";
 
 export * from "./lib/common-behaviours/animation";
