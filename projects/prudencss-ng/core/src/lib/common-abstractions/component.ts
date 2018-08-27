@@ -1,6 +1,6 @@
 import { ElementRef } from "@angular/core";
 
-type ICtor<T> = new (...args: any[]) => T;
+export type ICtor<T> = new (...args: any[]) => T;
 
 export abstract class ComponentBaseProps {
   protected _componentInfix: string;
@@ -12,7 +12,6 @@ export abstract class ComponentBase extends ComponentBaseProps {
   constructor(protected _elementRef: ElementRef) {
     super();
     this._classList = this._elementRef.nativeElement.classList;
-    this.getHostElement().classList.add(`c-${this._componentInfix}`);
   }
 
   static mixin(...args: any[]): ICtor<ComponentBase> {
@@ -27,6 +26,10 @@ export abstract class ComponentBase extends ComponentBaseProps {
       }
     });
     return Augmented;
+  }
+
+  protected _init() {
+    this.getHostElement().classList.add(`c-${this._componentInfix}`);
   }
 
   protected _hasHostAttributes(...attributes: string[]): boolean {
