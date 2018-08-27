@@ -22,6 +22,7 @@ import {
   OnInit
 } from "@angular/core";
 import {
+  ICtor,
   ComponentBase,
   CanAnimation,
   CanColor,
@@ -30,11 +31,17 @@ import {
   CanSize,
   CanButtonType,
   Animation,
+  AnimationPalette,
   Color,
+  ColorPalette,
   Decoration,
+  DecorationPalette,
   Disabled,
+  DisabledPalette,
   Size,
-  Type
+  SizePalette,
+  Type,
+  ButtonTypePalette
 } from "@prudencss-ng/core";
 
 /**
@@ -52,13 +59,10 @@ const BUTTON_HOST_ATTRIBUTES = [
   "icon"
 ];
 
-export interface PrueButtonComponent extends ComponentBase {}
 @Component({
-  moduleId: module.id,
   selector: `button[prue-button]`,
   exportAs: "prueButton",
   templateUrl: "button.html",
-  styleUrls: ["button.css"],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -82,26 +86,27 @@ export class PrueButtonComponent
     CanButtonType {
   // @ViewChild(Spinner) spinner: Spinner;
 
-  @Input() protected animation?: CanAnimation.animation;
-  @Input() protected color?: CanColor.color;
-  @Input() protected decoration?: CanDecoration.decoration;
+  @Input() animation?: AnimationPalette;
+  @Input() color?: ColorPalette;
+  @Input() decoration?: DecorationPalette;
   @Input()
   @HostBinding("attr.disabled")
-  protected disabled?: boolean | string | null;
+  disabled?: DisabledPalette;
   @HostBinding("attr.aria-disabled")
-  private ariaDisabled: string = this.disabled.toString();
-  @Input() protected size?: CanSize.size;
+  ariaDisabled: string | null = this.disabled ? this.disabled.toString() : null;
+  @Input() size?: SizePalette;
   @Input()
   @HostBinding("attr.tabindex")
-  protected tabindex: number = this.disabled ? -1 : 0;
-  @Input() protected type?: CanButtonType.type;
+  tabindex: number = this.disabled ? -1 : 0;
+  @Input() type?: ButtonTypePalette;
 
   constructor(elementRef: ElementRef, private _focusMonitor: FocusMonitor) {
     super(elementRef);
 
     this._componentInfix = "btn";
+    super._init();
 
-    this._focusMonitor.monitor(this._getHostElement(), true);
+    this._focusMonitor.monitor(this.getHostElement(), true);
   }
 
   ngOnInit() {
@@ -116,12 +121,12 @@ export class PrueButtonComponent
   }
 
   ngOnDestroy() {
-    this._focusMonitor.stopMonitoring(this._getHostElement());
+    this._focusMonitor.stopMonitoring(this.getHostElement());
   }
 
   /** Focuses the button. */
   focus(): void {
-    this._getHostElement().focus();
+    this.getHostElement().focus();
   }
 }
 
@@ -129,7 +134,6 @@ export class PrueButtonComponent
  * Raised Material design button.
  */
 @Component({
-  moduleId: module.id,
   selector: `a[prue-button]`,
   exportAs: "prueAnchor",
   templateUrl: "button.html",
@@ -139,9 +143,9 @@ export class PrueButtonComponent
 })
 export class PrueAnchorComponent extends PrueButtonComponent {
   @HostListener("click", ["$event.target"])
-  protected _haltDisabledEvents(originalClickElement: HTMLElement) {
+  haltDisabledEvents(originalClickElement: HTMLElement) {
     // A disabled button shouldn't apply any actions
-    if (this.disabled || originalClickElement !== this._getHostElement()) {
+    if (this.disabled || originalClickElement !== this.getHostElement()) {
       event.preventDefault();
       event.stopImmediatePropagation();
     }
