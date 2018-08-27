@@ -15,7 +15,7 @@ export abstract class ComponentBase extends ComponentBaseProps {
     this.getHostElement().classList.add(`c-${this._componentInfix}`);
   }
 
-  static mixin<(...args: any[]): ICtor<ComponentBase> {
+  static mixin(...args: any[]): ICtor<ComponentBase> {
     class Augmented extends ComponentBase {}
     args.forEach(mixin => {
       for (const method of Object.keys(mixin.prototype)) {
