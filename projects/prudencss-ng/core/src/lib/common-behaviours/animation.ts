@@ -3,7 +3,7 @@ import { ComponentBaseProps } from "../common-abstractions/component";
 /** @docs-private */
 export interface CanAnimation {
   /** Theme animation palette for the component. */
-  animation: AnimationPalette;
+  animation?: AnimationPalette;
 }
 
 /** Possible animation palette values. */

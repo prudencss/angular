@@ -3,7 +3,7 @@ import { ComponentBaseProps } from "../common-abstractions/component";
 /** @docs-private */
 export interface CanColor {
   /** Theme color palette for the component. */
-  color: ColorPalette;
+  color?: ColorPalette;
 }
 
 /** Possible color palette values. */

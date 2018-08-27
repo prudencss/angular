@@ -3,7 +3,7 @@ import { ComponentBaseProps } from "../common-abstractions/component";
 /** @docs-private */
 export interface CanButtonType {
   /** Theme type palette for the button component. */
-  type: ButtonTypePalette;
+  type?: ButtonTypePalette;
 }
 
 /** Possible type palette values. */

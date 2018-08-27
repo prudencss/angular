@@ -3,11 +3,12 @@ import { ComponentBaseProps } from "../common-abstractions/component";
 /** @docs-private */
 export interface CanDecoration {
   /** Theme decoration palette for the component. */
-  decoration: DecorationPalette;
+  decoration?: DecorationPalette;
 }
 
 /** Possible decoration palette values. */
 export type DecorationPalette =
+  | "default"
   | "discrete"
   | "elevated"
   | "elevated-bottom"

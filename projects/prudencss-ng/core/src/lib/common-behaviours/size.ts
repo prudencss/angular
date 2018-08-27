@@ -3,7 +3,7 @@ import { ComponentBaseProps } from "../common-abstractions/component";
 /** @docs-private */
 export interface CanSize {
   /** Theme size palette for the component. */
-  size: SizePalette;
+  size?: SizePalette;
 }
 /** Possible size palette values. */
 export type SizePalette =
