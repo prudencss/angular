@@ -8,7 +8,6 @@ export interface CanDecoration {
 
 /** Possible decoration palette values. */
 export type DecorationPalette =
-  | "default"
   | "discrete"
   | "elevated"
   | "elevated-bottom"
