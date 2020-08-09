@@ -10,7 +10,7 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "sass"
+          "styleext": "scss"
         }
       },
       "architect": {
@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -126,38 +126,38 @@
         }
       }
     },
-    "button": {
-      "root": "projects/button",
-      "sourceRoot": "projects/button/src",
+    "@prudencss-angular/core": {
+      "root": "projects/prudencss-angular/core",
+      "sourceRoot": "projects/prudencss-angular/core/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/button/tsconfig.lib.json",
-            "project": "projects/button/ng-package.json"
+            "tsConfig": "projects/prudencss-angular/core/tsconfig.lib.json",
+            "project": "projects/prudencss-angular/core/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/button/ng-package.prod.json"
+              "project": "projects/prudencss-angular/core/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/button/src/test.ts",
-            "tsConfig": "projects/button/tsconfig.spec.json",
-            "karmaConfig": "projects/button/karma.conf.js"
+            "main": "projects/prudencss-angular/core/src/test.ts",
+            "tsConfig": "projects/prudencss-angular/core/tsconfig.spec.json",
+            "karmaConfig": "projects/prudencss-angular/core/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/button/tsconfig.lib.json",
-              "projects/button/tsconfig.spec.json"
+              "projects/prudencss-angular/core/tsconfig.lib.json",
+              "projects/prudencss-angular/core/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -166,158 +166,38 @@
         }
       }
     },
-    "@prudencss/ng-button": {
-      "root": "projects/prudencss/ng-button",
-      "sourceRoot": "projects/prudencss/ng-button/src",
+    "@prudencss-angular/button": {
+      "root": "projects/prudencss-angular/button",
+      "sourceRoot": "projects/prudencss-angular/button/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/prudencss/ng-button/tsconfig.lib.json",
-            "project": "projects/prudencss/ng-button/ng-package.json"
+            "tsConfig": "projects/prudencss-angular/button/tsconfig.lib.json",
+            "project": "projects/prudencss-angular/button/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/prudencss/ng-button/ng-package.prod.json"
+              "project": "projects/prudencss-angular/button/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/prudencss/ng-button/src/test.ts",
-            "tsConfig": "projects/prudencss/ng-button/tsconfig.spec.json",
-            "karmaConfig": "projects/prudencss/ng-button/karma.conf.js"
+            "main": "projects/prudencss-angular/button/src/test.ts",
+            "tsConfig": "projects/prudencss-angular/button/tsconfig.spec.json",
+            "karmaConfig": "projects/prudencss-angular/button/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/prudencss/ng-button/tsconfig.lib.json",
-              "projects/prudencss/ng-button/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@prudencss-ng/prudencss-button": {
-      "root": "projects/prudencss-ng/prudencss-button",
-      "sourceRoot": "projects/prudencss-ng/prudencss-button/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/prudencss-ng/prudencss-button/tsconfig.lib.json",
-            "project": "projects/prudencss-ng/prudencss-button/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/prudencss-ng/prudencss-button/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/prudencss-ng/prudencss-button/src/test.ts",
-            "tsConfig": "projects/prudencss-ng/prudencss-button/tsconfig.spec.json",
-            "karmaConfig": "projects/prudencss-ng/prudencss-button/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/prudencss-ng/prudencss-button/tsconfig.lib.json",
-              "projects/prudencss-ng/prudencss-button/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@prudencss-ng/core": {
-      "root": "projects/prudencss-ng/core",
-      "sourceRoot": "projects/prudencss-ng/core/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/prudencss-ng/core/tsconfig.lib.json",
-            "project": "projects/prudencss-ng/core/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/prudencss-ng/core/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/prudencss-ng/core/src/test.ts",
-            "tsConfig": "projects/prudencss-ng/core/tsconfig.spec.json",
-            "karmaConfig": "projects/prudencss-ng/core/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/prudencss-ng/core/tsconfig.lib.json",
-              "projects/prudencss-ng/core/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@prudencss-ng/button": {
-      "root": "projects/prudencss-ng/button",
-      "sourceRoot": "projects/prudencss-ng/button/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/prudencss-ng/button/tsconfig.lib.json",
-            "project": "projects/prudencss-ng/button/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/prudencss-ng/button/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/prudencss-ng/button/src/test.ts",
-            "tsConfig": "projects/prudencss-ng/button/tsconfig.spec.json",
-            "karmaConfig": "projects/prudencss-ng/button/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/prudencss-ng/button/tsconfig.lib.json",
-              "projects/prudencss-ng/button/tsconfig.spec.json"
+              "projects/prudencss-angular/button/tsconfig.lib.json",
+              "projects/prudencss-angular/button/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

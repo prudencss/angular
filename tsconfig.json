@@ -18,35 +18,17 @@
       "dom"
     ],
     "paths": {
-      "button": [
-        "dist/button"
+      "@prudencss-angular/core": [
+        "dist/prudencss-angular/core"
       ],
-      "button/*": [
-        "dist/button/*"
+      "@prudencss-angular/core/*": [
+        "dist/prudencss-angular/core/*"
       ],
-      "@prudencss/ng-button": [
-        "dist/prudencss/ng-button"
+      "@prudencss-angular/button": [
+        "dist/prudencss-angular/button"
       ],
-      "@prudencss/ng-button/*": [
-        "dist/prudencss/ng-button/*"
-      ],
-      "@prudencss-ng/prudencss-button": [
-        "dist/prudencss-ng/prudencss-button"
-      ],
-      "@prudencss-ng/prudencss-button/*": [
-        "dist/prudencss-ng/prudencss-button/*"
-      ],
-      "@prudencss-ng/core": [
-        "dist/prudencss-ng/core"
-      ],
-      "@prudencss-ng/core/*": [
-        "dist/prudencss-ng/core/*"
-      ],
-      "@prudencss-ng/button": [
-        "dist/prudencss-ng/button"
-      ],
-      "@prudencss-ng/button/*": [
-        "dist/prudencss-ng/button/*"
+      "@prudencss-angular/button/*": [
+        "dist/prudencss-angular/button/*"
       ]
     }
   }

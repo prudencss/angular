@@ -42,7 +42,7 @@ import {
   SizePalette,
   Type,
   ButtonTypePalette
-} from "@prudencss-ng/core";
+} from "@prudencss-angular/core";
 
 /**
  * List of classes to add to MatButton instances based on host attributes to
@@ -60,13 +60,13 @@ const BUTTON_HOST_ATTRIBUTES = [
 ];
 
 @Component({
-  selector: `button[prue-button]`,
-  exportAs: "prueButton",
+  selector: `button[Prudencss-button]`,
+  exportAs: "PrudencssButton",
   templateUrl: "button.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PrueButtonComponent
+export class PrudencssButtonComponent
   extends ComponentBase.mixin(
     Animation,
     Color,
@@ -134,14 +134,14 @@ export class PrueButtonComponent
  * Raised Material design button.
  */
 @Component({
-  selector: `a[prue-button]`,
-  exportAs: "prueAnchor",
+  selector: `a[Prudencss-button]`,
+  exportAs: "PrudencssAnchor",
   templateUrl: "button.html",
   styleUrls: ["button.css"],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PrueAnchorComponent extends PrueButtonComponent {
+export class PrudencssAnchorComponent extends PrudencssButtonComponent {
   @HostListener("click", ["$event.target"])
   haltDisabledEvents(originalClickElement: HTMLElement) {
     // A disabled button shouldn't apply any actions
