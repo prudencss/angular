@@ -6,13 +6,16 @@ export interface CanDecoration {
   decoration?: DecorationPalette;
 }
 
+export enum EDecoration {
+  Default = "default",
+  Discrete = "discrete",
+  Elevated = "elevated",
+  ElevatedBottom = "elevated-bottom",
+  Sunken = "sunken"
+}
+
 /** Possible decoration palette values. */
-export type DecorationPalette =
-  | "discrete"
-  | "elevated"
-  | "elevated-bottom"
-  | "sunken"
-  | undefined;
+export type DecorationPalette = EDecoration | undefined;
 
 /** Mixin to augment a directive with a `decoration` property. */
 export abstract class Decoration extends ComponentBaseProps {

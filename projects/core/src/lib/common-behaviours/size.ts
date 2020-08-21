@@ -5,14 +5,17 @@ export interface CanSize {
   /** Theme size palette for the component. */
   size?: SizePalette;
 }
+
+export enum ESize {
+  Tiny = "tiny",
+  Small = "small",
+  Medium = "medium",
+  Large = "large",
+  Huge = "huge"
+}
+
 /** Possible size palette values. */
-export type SizePalette =
-  | "tiny"
-  | "small"
-  | "medium"
-  | "large"
-  | "huge"
-  | undefined;
+export type SizePalette = ESize | undefined;
 
 /** Mixin to augment a directive with a `size` property. */
 export abstract class Size extends ComponentBaseProps {

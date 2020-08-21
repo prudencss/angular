@@ -6,14 +6,16 @@ export interface CanAnimation {
   animation?: AnimationPalette;
 }
 
+export enum EAnimation {
+  Jiggle = "jiggle",
+  Ripple = "ripple",
+  RevealOpacity = "reveal-opacity",
+  RevealSlide = "reveal-slide",
+  Tata = "tata"
+}
+
 /** Possible animation palette values. */
-export type AnimationPalette =
-  | "jiggle"
-  | "ripple"
-  | "reveal-opacity"
-  | "reveal-slide"
-  | "tata"
-  | undefined;
+export type AnimationPalette = EAnimation | undefined;
 
 /** Mixin to augment a directive with an `animation` property. */
 export abstract class Animation extends ComponentBaseProps {

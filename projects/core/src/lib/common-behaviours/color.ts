@@ -6,17 +6,19 @@ export interface CanColor {
   color?: ColorPalette;
 }
 
+export enum EColor {
+  Primary = "primary",
+  Secondary = "secondary",
+  Accent = "accent",
+  Success = "success",
+  Info = "info",
+  Warn = "warn",
+  Danger = "danger",
+  Disabled = "disabled"
+}
+
 /** Possible color palette values. */
-export type ColorPalette =
-  | "primary"
-  | "secondary"
-  | "accent"
-  | "success"
-  | "info"
-  | "warn"
-  | "danger"
-  | "disabled"
-  | undefined;
+export type ColorPalette = EColor | undefined;
 
 /** Mixin to augment a directive with a `color` property. */
 export abstract class Color extends ComponentBaseProps {

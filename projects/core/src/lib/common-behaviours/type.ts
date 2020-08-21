@@ -1,31 +1,18 @@
 import { ComponentBaseProps } from "../common-abstractions/component";
 
-/** @docs-private */
-export interface CanButtonType {
-  /** Theme type palette for the button component. */
-  type?: ButtonTypePalette;
+export interface CanType<ComponentTypePalette> {
+  type?: ComponentTypePalette;
 }
 
-/** Possible type palette values. */
-export type TypePalette = ButtonTypePalette;
-
-/** Possible button type palette values. */
-export type ButtonTypePalette =
-  | "basic"
-  | "stroked"
-  | "flat"
-  | "fab"
-  | undefined;
-
 /** Mixin to augment a directive with a `type` property. */
-export abstract class Type extends ComponentBaseProps {
-  private _type: TypePalette;
+export abstract class Type<ComponentTypePalette> extends ComponentBaseProps {
+  private _type: ComponentTypePalette;
 
-  get type(): TypePalette {
+  get type(): ComponentTypePalette {
     return this._type;
   }
-  set type(value: TypePalette) {
-    const typePalette: TypePalette = value || null;
+  set type(value: ComponentTypePalette) {
+    const typePalette: ComponentTypePalette = value || null;
 
     if (typePalette !== this._type) {
       if (this._type) {
